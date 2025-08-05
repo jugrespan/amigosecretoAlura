@@ -25,9 +25,13 @@ Aplicação web intuitiva que:
 
 🚀 Funcionalidades Técnicas
 Feature	Tecnologia Aplicada
+
 Validação de dados	JavaScript (checa nomes duplicados/vazios)
+
 Algoritmo de sorteio	Math.random() + lógica de exclusão
+
 Persistência de dados	localStorage (salva entre sessões)
+
 Interface responsiva	CSS Flexbox/Grid
 
 🛠 Como Usar 
