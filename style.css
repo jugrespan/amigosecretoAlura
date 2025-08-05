@@ -2,14 +2,14 @@
     --color-primary: #FFD6E0; /* Rosa claro */
     --color-secondary: #FFF9FB; /* Branco rosado */
     --color-tertiary: #FFB7C5; /* Rosa médio */
-    --color-button: #FF85A2; /* Rosa mais vibrante */
-    --color-button-hover: #FF6B8B; /* Rosa mais escuro */
-    --color-text: #5E4A4F; /* Marrom rosado para texto */
+    --color-button: #FF85A2; /* Rosa vibrante */
+    --color-button-hover: #FF6B8B; /* Rosa escuro */
+    --color-text: #5E4A4F; /* Marrom rosado */
     --color-white: #FFFFFF;
-    --color-shadow: rgba(255, 182, 193, 0.3); /* Sombra rosa */
+    --color-shadow: rgba(255, 182, 193, 0.3);
 }
 
-/* Estilos gerais */
+/* ===== ESTILOS GERAIS ===== */
 * {
     margin: 0;
     padding: 0;
@@ -25,6 +25,19 @@ body {
     font-family: "Inter", sans-serif;
 }
 
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* ===== ESTRUTURA PRINCIPAL ===== */
 .main-content {
     display: flex;
     flex-direction: column;
@@ -33,17 +46,36 @@ body {
     max-width: 800px;
 }
 
-/* Banner */
+/* ===== CABEÇALHO ===== */
 .header-banner {
     flex: 40%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 40px 0 0;
     background-color: var(--color-primary);
+    text-align: center;
 }
 
-/* Seção de entrada */
+.main-title {
+    font-size: 48px;
+    font-family: "Merriweather", serif;
+    font-weight: 900;
+    font-style: italic;
+    color: var(--color-text);
+    text-shadow: 2px 2px 4px var(--color-shadow);
+}
+
+.tagline {
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    color: var(--color-text);
+    margin-top: 10px;
+    text-shadow: 1px 1px 2px var(--color-shadow);
+}
+
+/* ===== SEÇÃO DE ENTRADA ===== */
 .input-section {
     flex: 60%;
     background-color: var(--color-secondary);
@@ -57,16 +89,6 @@ body {
     box-shadow: 0 -5px 15px var(--color-shadow);
 }
 
-/* Títulos */
-.main-title {
-    font-size: 48px;
-    font-family: "Merriweather", serif;
-    font-weight: 900;
-    font-style: italic;
-    color: var(--color-text);
-    text-shadow: 2px 2px 4px var(--color-shadow);
-}
-
 .section-title {
     font-family: "Inter", serif;
     font-size: 36px;
@@ -76,7 +98,16 @@ body {
     text-align: center;
 }
 
-/* Contêineres de entrada e botão */
+.hint-text {
+    color: var(--color-text);
+    opacity: 0.8;
+    font-size: 14px;
+    margin: 5px 0 15px;
+    text-align: center;
+    width: 80%;
+}
+
+/* ===== FORMULÁRIO ===== */
 .input-wrapper {
     display: flex;
     justify-content: center;
@@ -100,12 +131,7 @@ body {
     border-color: var(--color-button);
 }
 
-.button-container {
-    width: 300px;
-    justify-content: center;
-}
-
-/* Estilos de botão */
+/* ===== BOTÕES ===== */
 button {
     padding: 15px 30px;
     font-family: "Inter", sans-serif;
@@ -116,6 +142,11 @@ button {
     cursor: pointer;
     transition: all 0.3s ease;
     color: var(--color-white);
+}
+
+button:focus-visible {
+    outline: 2px solid var(--color-text);
+    outline-offset: 3px;
 }
 
 .button-add {
@@ -129,7 +160,53 @@ button {
     transform: translateY(-2px);
 }
 
-/* Listas */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.button-draw,
+.button-reset {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    max-width: 400px;
+    padding: 15px 40px;
+    font-size: 18px;
+    border: none;
+}
+
+.button-draw {
+    background-color: var(--color-button);
+}
+
+.button-draw:hover {
+    background-color: var(--color-button-hover);
+    transform: scale(1.02);
+}
+
+.button-reset {
+    background-color: var(--color-tertiary);
+    color: var(--color-text);
+}
+
+.button-reset:hover {
+    background-color: var(--color-button);
+    color: var(--color-white);
+}
+
+.button-draw img,
+.button-reset img {
+    margin-right: 15px;
+    filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.1));
+}
+
+/* ===== LISTAS ===== */
 ul {
     list-style-type: none;
     color: var(--color-text);
@@ -149,39 +226,48 @@ li {
 
 .result-list {
     margin-top: 20px;
-    color: #FF6B8B; /* Rosa escuro para resultados */
+    color: var(--color-button-hover);
     font-size: 22px;
     font-weight: bold;
     text-align: center;
     text-shadow: 1px 1px 2px var(--color-shadow);
+    animation: fadeIn 0.5s ease-out;
 }
 
-/* Botão de sortear título */
-.button-draw {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 80%;
-    max-width: 400px;
-    padding: 15px 40px;
-    color: var(--color-white);
-    background-color: var(--color-button);
-    font-size: 18px;
-    margin-top: 20px;
-    border: none;
+/* ===== ANIMAÇÕES ===== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-.button-draw img {
-    margin-right: 15px;
-    filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.1));
-}
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 600px) {
+    .main-title {
+        font-size: 36px;
+    }
 
-.button-draw:hover {
-    background-color: var(--color-button-hover);
-    transform: scale(1.02);
-}
+    .section-title {
+        font-size: 24px;
+    }
 
-/* Efeitos de hover suaves */
-button:hover {
-    box-shadow: 0 6px 12px var(--color-shadow);
+    .input-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .input-name {
+        border-radius: 25px;
+        margin-bottom: 10px;
+    }
+
+    .button-add {
+        border-radius: 25px;
+        width: 100%;
+    }
+
+    .button-draw,
+    .button-reset {
+        width: 100%;
+        margin: 0;
+    }
 }
