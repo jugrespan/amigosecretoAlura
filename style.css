@@ -1,11 +1,12 @@
 :root {
-    --color-primary: #4B69FD;
-    --color-secondary: #FFF9EB;
-    --color-tertiary: #C4C4C4;
-    --color-button: #fe652b;
-    --color-button-hover: #e55720;
-    --color-text: #444444;
+    --color-primary: #FFD6E0; /* Rosa claro */
+    --color-secondary: #FFF9FB; /* Branco rosado */
+    --color-tertiary: #FFB7C5; /* Rosa médio */
+    --color-button: #FF85A2; /* Rosa mais vibrante */
+    --color-button-hover: #FF6B8B; /* Rosa mais escuro */
+    --color-text: #5E4A4F; /* Marrom rosado para texto */
     --color-white: #FFFFFF;
+    --color-shadow: rgba(255, 182, 193, 0.3); /* Sombra rosa */
 }
 
 /* Estilos gerais */
@@ -21,6 +22,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: "Inter", sans-serif;
 }
 
 .main-content {
@@ -28,6 +30,7 @@ body {
     flex-direction: column;
     height: 100%;
     width: 100%;
+    max-width: 800px;
 }
 
 /* Banner */
@@ -37,19 +40,21 @@ body {
     justify-content: center;
     align-items: center;
     padding: 40px 0 0;
+    background-color: var(--color-primary);
 }
 
 /* Seção de entrada */
 .input-section {
     flex: 60%;
     background-color: var(--color-secondary);
-    border: 1px solid #000;
+    border: 1px solid var(--color-tertiary);
     border-radius: 64px 64px 0 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 40px 20px;
     width: 100%;
+    box-shadow: 0 -5px 15px var(--color-shadow);
 }
 
 /* Títulos */
@@ -58,15 +63,16 @@ body {
     font-family: "Merriweather", serif;
     font-weight: 900;
     font-style: italic;
-    color: var(--color-white);
+    color: var(--color-text);
+    text-shadow: 2px 2px 4px var(--color-shadow);
 }
 
 .section-title {
     font-family: "Inter", serif;
     font-size: 36px;
     font-weight: 700;
-    color: var(--color-primary);
-    margin: 10px 0;
+    color: var(--color-text);
+    margin: 20px 0;
     text-align: center;
 }
 
@@ -76,15 +82,22 @@ body {
     justify-content: center;
     width: 100%;
     max-width: 600px;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .input-name {
     width: 100%;
-    padding: 10px;
-    border: 2px solid #000;
+    padding: 15px;
+    border: 2px solid var(--color-tertiary);
     border-radius: 25px 0 0 25px;
     font-size: 16px;
+    background-color: var(--color-white);
+    color: var(--color-text);
+    outline: none;
+}
+
+.input-name:focus {
+    border-color: var(--color-button);
 }
 
 .button-container {
@@ -92,27 +105,17 @@ body {
     justify-content: center;
 }
 
-/* Estilos de entrada de texto */
-.input-title {
-    flex: 1;
-    padding: 10px 15px;
-    font-size: 16px;
-    border: 2px solid #333;
-    border-right: none;
-    border-radius: 25px 0 0 25px;
-    font-family: "Merriweather", serif;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
 /* Estilos de botão */
 button {
     padding: 15px 30px;
     font-family: "Inter", sans-serif;
     font-size: 16px;
-    border: 2px solid #000;
+    border: 2px solid var(--color-tertiary);
     border-radius: 25px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 8px var(--color-shadow);
     cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--color-white);
 }
 
 .button-add {
@@ -122,7 +125,8 @@ button {
 }
 
 .button-add:hover {
-    background-color: #a1a1a1;
+    background-color: var(--color-button);
+    transform: translateY(-2px);
 }
 
 /* Listas */
@@ -131,32 +135,53 @@ ul {
     color: var(--color-text);
     font-family: "Inter", sans-serif;
     font-size: 18px;
-    margin: 20px 0;
+    margin: 30px 0;
+    width: 80%;
+}
+
+li {
+    padding: 10px;
+    margin: 5px 0;
+    background-color: var(--color-white);
+    border-radius: 15px;
+    box-shadow: 0 2px 4px var(--color-shadow);
 }
 
 .result-list {
-    margin-top: 15px;
-    color: #05DF05;
+    margin-top: 20px;
+    color: #FF6B8B; /* Rosa escuro para resultados */
     font-size: 22px;
     font-weight: bold;
     text-align: center;
+    text-shadow: 1px 1px 2px var(--color-shadow);
 }
 
 /* Botão de sortear título */
 .button-draw {
     display: flex;
     align-items: center;
-    width: 100%;
-    padding: 10px 40px;
+    justify-content: center;
+    width: 80%;
+    max-width: 400px;
+    padding: 15px 40px;
     color: var(--color-white);
     background-color: var(--color-button);
-    font-size: 16px;
+    font-size: 18px;
+    margin-top: 20px;
+    border: none;
 }
 
 .button-draw img {
-    margin-right: 40px;
+    margin-right: 15px;
+    filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.1));
 }
 
 .button-draw:hover {
     background-color: var(--color-button-hover);
+    transform: scale(1.02);
+}
+
+/* Efeitos de hover suaves */
+button:hover {
+    box-shadow: 0 6px 12px var(--color-shadow);
 }
