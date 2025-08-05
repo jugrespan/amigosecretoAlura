@@ -16,7 +16,9 @@ Organizar sorteios de amigo secreto manualmente é trabalhoso e propenso a erros
 Minha solução:
 Aplicação web intuitiva que:
 ✅ Garante sorteios justos (ninguém tira a si mesmo).
+
 ✅ Elimina a necessidade de papel ou planilhas.
+
 ✅ Pode ser usado em celulares e computadores.
 
 
